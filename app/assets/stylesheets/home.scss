@@ -12,7 +12,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  .main {
-   background-image: url("/main.jpg");
+   background-color: #EFFBF2
+
  }
  .top-main {
    padding: 200px 0 100px;
@@ -27,6 +28,7 @@
    background-position: center 50%;
    background-size: cover;
    margin-top: -20px;
+    background-image: url("/main.jpg");
 
  }
 
