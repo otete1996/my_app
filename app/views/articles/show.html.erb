@@ -1,0 +1,34 @@
+<p>
+  <b>トピック：<%= @article.content %></b>
+</p>
+
+<p>
+  <b>日時：<%= @article.date %></b>
+</p>
+
+
+
+<h3>レビュー一覧</h3>
+<% @article.reviews.each do |review| %>
+
+  <!-- 修正前 -->
+  <li><%= review.body %> - <%= review.created_at %></li>
+
+  <!-- 修正後 -->
+  <li>
+    <%= review.body %> - <%= review.created_at %>
+    <%= link_to "削除", review_path(review), method: :delete %>
+  </li>
+
+<% end %>
+
+<!-- ここから追記 -->
+<h3>投稿</h3>
+<%= render partial: 'new_review', locals: { review: @article.reviews.new } %>
+<!-- ここまで追記 -->
+
+<hr>
+<p>
+  <%= link_to "編集", edit_book_path(@book) %>
+  <%= link_to "削除", book_path(@book), method: :delete %>
+</p>

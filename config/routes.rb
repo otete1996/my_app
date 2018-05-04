@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  #devise_for :users
+  resources :articles,{only: [:show]}
+
   get '/index'=>"home#top"
   root "home#main"
 

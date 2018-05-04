@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h1>Bootstrapの練習</h1>
+  <h1>本日のトピック</h1>
   <div class="row"><!-- 横並びにしている要素を囲う要素 -->
     <div class="col-md-6">
       <table class="table table-hover">
@@ -14,7 +14,7 @@
     <tbody>
       <% @texts.each do |txt| %>
       <tr class="table-active">
-        <th scope="row">Active</th>
+        <th scope="row"><%= txt.date %></th>
         <td><%= txt.content %></td>
       </tr>
       <% end  %>
