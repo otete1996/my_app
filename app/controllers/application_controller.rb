@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::Base
-  require 'date'
-  require 'open-uri'
-  require 'nokogiri'
+  # require 'date'
+  # require 'open-uri'
+  # require 'nokogiri'
   protect_from_forgery with: :exception
   before_action :set_up
   before_action :set_up2
   private
 
   def set_up
-    # require 'date'
-    # require 'open-uri'
-    # require 'nokogiri'
+    require 'date'
+    require 'open-uri'
+    require 'nokogiri'
     day = Date.today
     article=Article.last
     if article.blank? || article.date!=day
@@ -37,9 +37,9 @@ class ApplicationController < ActionController::Base
     end
   end
   def set_up2
-    # require 'date'
-    # require 'open-uri'
-    # require 'nokogiri'
+    require 'date'
+    require 'open-uri'
+    require 'nokogiri'
     day = Date.today
     topic=Article.last
     if topic.blank? || topic.date!=day
