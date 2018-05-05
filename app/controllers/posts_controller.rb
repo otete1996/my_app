@@ -6,12 +6,16 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to(article_path(@post.article),notice: '投稿に成功しました')
     else
-      render(article_path(@post.article))
+      @posts=Post.where(article_id: params[:article_id].to_i)
+      @article=Article.find(params[:article_id])
+      flash[:alert]="項目を入力してください"
+      render template: "articles/show"
     end
   end
 
   def edit
     @post=Post.find(params[:id])
+
   end
 
   def update

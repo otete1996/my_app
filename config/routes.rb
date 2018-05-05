@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+
 
   #devise_for :users
-  resources :articles,{only: [:show]}
+  resources :articles,{only: [:show]} do
+    resources :posts
+
+  end
 
   get '/index'=>"home#top"
   root "home#main"
