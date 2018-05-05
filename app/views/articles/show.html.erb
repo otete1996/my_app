@@ -12,6 +12,21 @@
   </div>
 </div>
 
+<hr>
+    <h6>コメント一覧</h6>
+    <% @posts.each do |comment| %>
+      <div class="media">
+        <div class="media-body">
+          <%= simple_format(comment.content) %>
+          <p class="text-muted">
+            投稿記事:<%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
+            <%= link_to "削除する", post_path(comment), method: :delete %>
+
+          </p>
+        </div>
+      </div>
+    <% end %>
+
 <%= form_with model: @post, url: { controller: :posts, action: :create }, local: true do |form| %>
       <div class="form-group">
         <%= form.label :content , 'コメント内容' %><br>
