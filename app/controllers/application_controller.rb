@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     require 'open-uri'
     require 'nokogiri'
     day = Date.today
-    @article=Article.first
+    @article=Article.last
     if @article.blank? || @article.date!=day
       url = 'https://news.yahoo.co.jp/list/?d=20180504&mc=f&mp=f'
 

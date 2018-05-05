@@ -20,20 +20,22 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="/index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">覧ページ</font></font><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（現在）</font></font></span></a>
+                          <a class="nav-link" href="/index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一覧ページ</font></font><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（現在）</font></font></span></a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/users/sign_in" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ログイン</font></font></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/users/sign_up" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新規登録</font></font></a>
-                        </li>
+
                         <% if user_signed_in? %>
                         <li class="nav-item">
                           <a class="nav-link" href="/users/sign_out" method="delete"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ログアウト</font></font></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">編集</font></font></a>
+                        </li>
+                        <% else %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/users/sign_in" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ログイン</font></font></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/users/sign_up" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新規登録</font></font></a>
                         </li>
                         <%end %>
                       </ul>
