@@ -11,17 +11,17 @@
               <th scope="col">title</th>
             </tr>
         </thead>
-      <tbody>
+        <tbody>
       <% @texts.each do |txt| %>
         <tr class="table-active">
           <th scope="row"><%= txt.date %></th>
-          <td><%= txt.content %></td>
+          <td><%= link_to(txt.content,article_path(txt)) %></td>
         </tr>
-      <% end  %>
+      <% end %>
 
-    </tbody>
-</table>
- <%= paginate @texts %>
+        </tbody>
+      </table>
+      <%= paginate @texts %>
 
 
 
