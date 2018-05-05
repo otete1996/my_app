@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_up
+  before_action :set_up2
   private
 
   def set_up
@@ -29,6 +30,35 @@ class ApplicationController < ActionController::Base
       20.times do |index|
         @post=Article.new(content: @txt[index],date: day)
         @post.save
+      end
+    end
+  end
+  def set_up2
+    require 'date'
+    require 'open-uri'
+    require 'nokogiri'
+    day = Date.today
+    topic=Article2.last
+    if topic.blank? || topic.date!=day
+      url = 'https://mainichi.jp/flash/1'
+
+      charset = nil
+      html = open(url) do |f|
+        charset = f.charset
+        f.read
+      end
+
+      @title=Array.new(20)
+      page = Nokogiri::HTML.parse(html, nil, charset)
+
+      20.times do |index|
+        shuzo_meigen = page.css(".midashi")[index]
+        @title[index]=shuzo_meigen.text
+      end
+
+      20.times do |index|
+        @post2=Article2.new(content: @title[index],date: day)
+        @post2.save
       end
     end
   end

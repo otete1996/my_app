@@ -3,17 +3,18 @@
 <div class="container">
   <h1>本日のトピック</h1>
   <div class="row"><!-- 横並びにしている要素を囲う要素 -->
-    <div class="col-md-6">
-      <table class="table table-hover">
+    <div class="col-md-5">
+      <h4>yahooニュース</h4>
+      <table class="table table-bordered table-hover">
         <thead>
             <tr>
-              <th scope="col">Type</th>
+              <th scope="col">day</th>
               <th scope="col">title</th>
             </tr>
         </thead>
         <tbody>
       <% @texts.each do |txt| %>
-        <tr class="table-active">
+        <tr class="table-suceess">
           <th scope="row"><%= txt.date %></th>
           <td><%= link_to(txt.content,article_path(txt)) %></td>
         </tr>
@@ -22,6 +23,31 @@
         </tbody>
       </table>
       <%= paginate @texts %>
+
+
+
+
+
+    </div>
+    <div class="col-md-7">
+      <h4>毎日新聞</h4>
+      <table class="table table-bordered   table-hover ">
+        <tbody>
+
+            <tr>
+                <th>day</th>
+                <th>title</th>
+            </tr>
+            <% @topics.each do |txt| %>
+            <tr>
+
+                <td><%= txt.date %></td>
+                <td><%= link_to(txt.content,articles2_path(txt)) %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+      <%= paginate @topics %>
 
 
 
