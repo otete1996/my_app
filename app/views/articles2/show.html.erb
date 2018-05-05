@@ -15,14 +15,14 @@
 <hr>
     <h6>コメント一覧</h6>
     <% @posts.each do |comment| %>
-    <%if comment.article_id==@article.id %>
+    <%if comment.article2_id==@article.id %>
       <div class="media">
         <div class="media-body">
           <%= simple_format(comment.content) %>
           <p class="text-muted">
             投稿記事:<%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
             <% if comment.user.id==current_user.id %>
-            <%= link_to "削除する", article_post_path(@article,comment), method: :delete %>
+            <%= link_to "削除する", articles2_posts2_path(@article,comment), method: :delete %>
             <% end %>
             <%end %>
 
@@ -31,12 +31,12 @@
       </div>
     <% end %>
 
-<%= form_with model: @post, url: articles2_posts2_index_path(@article), local: true do |form| %>
+<%= form_with model: @post, url: articles2_posts2_index_path(@article,@post), local: true do |form| %>
       <div class="form-group">
         <%= form.label :content , 'コメント内容' %><br>
         <%= form.text_area :content, class: "form-control" %>
       </div>
-      <%= form.hidden_field :article_id, value: @article.id %>
+      <%= form.hidden_field :article2_id, value: @article.id %>
       <%= form.hidden_field :user_id, value: current_user.id %>
       <%= form.submit class: "btn btn-success" %>
     <% end %>
