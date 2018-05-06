@@ -5,20 +5,20 @@ Rails.application.routes.draw do
 
   get 'posts2/destroy'
 
-  get 'posts2/edit'
+  # get 'posts2/edit'
 
-  get 'posts2/update'
+  # get 'posts2/update'
 
   devise_for :users
 
 
   #devise_for :users
   resources :articles,{only: [:show]} do
-    resources :posts
+    resources :posts,{only:[:create,:delete]}
 
   end
   resources :articles2,{only: [:show]} do
-    resources :posts2
+    resources :posts2,{only:[:create,:delete]}
   end
 
   get '/index'=>"home#top"
