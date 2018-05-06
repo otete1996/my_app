@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     require 'open-uri'
     require 'nokogiri'
     day = Date.today
-    topic=Article.last
+    topic=Article2.last
     if topic.blank? || topic.date!=day
       url = 'https://mainichi.jp/flash/1'
       # ccccc('https://mainichi.jp/flash/1', ".midashi"))
