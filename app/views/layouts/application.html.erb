@@ -19,7 +19,7 @@
 
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item ">
                 <%= link_to("一覧","/index",class: "nav-link") %>
               </li>
 
@@ -29,6 +29,9 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to "編集",edit_user_registration_path,class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "#{current_user.email}さんこんにちは","/index",class: "nav-link" %>
                 </li>
               <% else %>
                 <li class="nav-item">
