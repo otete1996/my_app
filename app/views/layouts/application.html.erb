@@ -17,51 +17,53 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item ">
-                <%= link_to("一覧","/index",class: "nav-link") %>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <%= link_to("一覧","/index",class: "nav-link") %>
+            </li>
+
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "ログアウト",destroy_user_session_path, method: :delete,class: "nav-link" %>
               </li>
+              <li class="nav-item">
+                <%= link_to "編集",edit_user_registration_path,class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "#{current_user.email}さんこんにちは","/index",class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/sign_in" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ログイン</font></font></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/sign_up" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新規登録</font></font></a>
+              </li>
+            <%end %>
+          </ul>
 
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "ログアウト",destroy_user_session_path, method: :delete,class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "編集",edit_user_registration_path,class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "#{current_user.email}さんこんにちは","/index",class: "nav-link" %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <a class="nav-link" href="/users/sign_in" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ログイン</font></font></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/users/sign_up" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新規登録</font></font></a>
-                </li>
-              <%end %>
-            </ul>
+        </div>
+      </nav>
+      <div id="source-button" class="btn btn-primary btn-xs" style="display: none;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;&gt;</font></font>
+      </div>
+    </div>
+    <% if notice.present? %>
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
 
-          </div>
-        </nav>
-        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;&gt;</font></font></div></div>
-          <% if notice.present? %>
-          <div class="alert alert-dismissable alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p><%= notice %></p>
-          </div>
-          <% end %>
+    <% if alert.present? %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+    <div class="main">
+      <%= yield %>
+    </div>
 
-          <% if alert.present? %>
-          <div class="alert alert-dismissable alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p><%= alert %></p>
-          </div>
-          <% end %>
-          <div class="main">
-            <%= yield %>
-          </div>
-
-        </body>
+  </body>
 </html>

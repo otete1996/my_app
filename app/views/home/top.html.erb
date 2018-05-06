@@ -7,53 +7,41 @@
       <h4>yahooニュース</h4>
       <table class="table table-bordered table-hover">
         <thead>
-            <tr>
-              <th scope="col">day</th>
-              <th scope="col">title</th>
-            </tr>
+          <tr>
+            <th scope="col">day</th>
+            <th scope="col">title</th>
+          </tr>
         </thead>
         <tbody>
-      <% @texts.each do |txt| %>
-        <tr class="table-suceess">
-          <th scope="row"><%= txt.date %></th>
-          <td><%= link_to(txt.content,article_path(txt)) %></td>
-        </tr>
-      <% end %>
-
+          <% @texts.each do |txt| %>
+            <tr class="table-suceess">
+              <th scope="row"><%= txt.date %></th>
+              <td><%= link_to(txt.content,article_path(txt)) %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
       <%= paginate @texts %>
-
-
-
-
-
     </div>
     <div class="col-md-7">
       <h4>毎日新聞</h4>
       <table class="table table-bordered   table-hover ">
         <tbody>
 
-            <tr>
-                <th>day</th>
-                <th>title</th>
-            </tr>
-            <% @topics.each do |txt| %>
+          <tr>
+            <th>day</th>
+            <th>title</th>
+          </tr>
+          <% @topics.each do |txt| %>
             <tr>
 
-                <td><%= txt.date %></td>
-                <td><%= link_to(txt.content,articles2_path(txt)) %></td>
+              <td><%= txt.date %></td>
+              <td><%= link_to(txt.content,articles2_path(txt)) %></td>
             </tr>
-            <% end %>
+          <% end %>
         </tbody>
-    </table>
+      </table>
       <%= paginate @topics %>
-
-
-
-
-
     </div>
-
   </div>
 </div>

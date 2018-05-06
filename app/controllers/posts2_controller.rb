@@ -25,10 +25,13 @@ class Posts2Controller < ApplicationController
 
   def update
   end
+
   private
+
   def post2_params
     params.require(:post2).permit(:content,:user_id,:article2_id)
   end
+
   def correct_user
     @post=Post2.find(params[:id])
     if current_user.id==@post.user_id
@@ -36,5 +39,4 @@ class Posts2Controller < ApplicationController
       redirect_to(articles_path,notice:"権限がありません")
     end
   end
-
 end

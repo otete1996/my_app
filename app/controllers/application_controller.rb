@@ -66,24 +66,4 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  # def ccccc(url, css_test)
-  #   charset = nil
-  #   html = open(url) do |f|
-  #     charset = f.charset
-  #     f.read
-  #   end
-  #
-  #   @title=Array.new(20)
-  #   page = Nokogiri::HTML.parse(html, nil, charset)
-  #
-  #   20.times do |index|
-  #     shuzo_meigen = page.css(css_test)[index]
-  #     @title[index]=shuzo_meigen.text
-  #   end
-  #
-  #   20.times do |index|
-  #     @post2=Article2.new(content: @title[index],date: day)
-  #     @post2.save
-  #   end
-  # end
 end
