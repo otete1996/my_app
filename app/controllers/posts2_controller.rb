@@ -7,10 +7,10 @@ class Posts2Controller < ApplicationController
       redirect_to("/articles2/#{@post.article2.id}",notice: "投稿に成功しました")
 
     else
-      @posts=Post2.where(article_id: params[:article2_id].to_i)
-      @article=Article2.find(params[:article2_id])
+      @posts=Post2.where(article2_id: params[:articles2_id].to_i)
+      @article=Article2.find(params[:articles2_id])
       flash[:alert]="項目を入力してください"
-      render template: "articles/show"
+      render template: "articles2/show"
     end
   end
 

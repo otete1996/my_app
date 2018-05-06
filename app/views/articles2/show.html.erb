@@ -36,12 +36,12 @@
 
         <% end %>
 
-        <%= form_with model: @post, url: article_posts_path(@article), local: true do |form| %>
+        <%= form_with model: @post, url: articles2_posts2_index_path(@article), local: true do |form| %>
           <div class="form-group">
             <%= form.label :content , 'コメント内容' %><br>
             <%= form.text_area :content, class: "form-control" %>
           </div>
-          <%= form.hidden_field :article_id, value: @article.id %>
+          <%= form.hidden_field :article2_id, value: @article.id %>
           <%= form.hidden_field :user_id, value: current_user.id %>
           <%= form.submit class: "btn btn-success" %>
 

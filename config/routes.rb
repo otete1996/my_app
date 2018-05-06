@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 
   #devise_for :users
   resources :articles,{only: [:show]} do
-    resources :posts,{only:[:create,:delete]}
+    resources :posts,{only:[:create,:destroy]}
 
   end
   resources :articles2,{only: [:show]} do
-    resources :posts2,{only:[:create,:delete]}
+    resources :posts2,{only:[:create,:destroy]}
   end
 
   get '/index'=>"home#top"

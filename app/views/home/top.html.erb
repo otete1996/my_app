@@ -15,7 +15,7 @@
         <tbody>
           <% @texts.each do |txt| %>
             <tr class="table-suceess">
-              <th scope="row"><%= txt.date %></th>
+              <td scope="row"><%= txt.date %></td>
               <td><%= link_to(txt.content,article_path(txt)) %></td>
             </tr>
           <% end %>
@@ -29,13 +29,13 @@
         <tbody>
 
           <tr>
-            <th>day</th>
-            <th>title</th>
+            <th scope="col">day</th>
+            <th scope="col">title</th>
           </tr>
           <% @topics.each do |txt| %>
             <tr>
 
-              <td><%= txt.date %></td>
+              <td scope="row"><%= txt.date %></td>
               <td><%= link_to(txt.content,articles2_path(txt)) %></td>
             </tr>
           <% end %>
